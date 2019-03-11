@@ -10,8 +10,8 @@ use \Firebase\JWT\JWT;
 $url = 'https://uat.inovapay.com/api/deposit';
 
 # Set Auth Params
-$api_user = '8018580'; #Your api user
-$api_secret = 'e42573f5782eb327db7e24fb6f85977ac811c11c'; #Your api key
+$api_key = '8018580'; #Your api key
+$api_secret = 'e42573f5782eb327db7e24fb6f85977ac811c11c'; #Your api secret
 # Valid period for this request (optional)
 $issued_at = time() - 5;        # timestamp minus 5 seconds for an eventual server time difference
 $expire = $issued_at + 60;    # 60 seconds after $issued_at
@@ -39,7 +39,7 @@ $body_json = json_encode($body);
 
 # Set the POST Headers
 $headers = array(
-    'x-api-key: ' . $api_user,
+    'x-api-key: ' . $api_key,
     'Content-Type: application/json',
     'Accept-Language: pt-BR', # Language for error message, available: pt-BR en-US
 );
