@@ -36,7 +36,7 @@ $body = array('jwt' => $jwt_encoded);
 # Encode in JSON
 $body_json = json_encode($body);
 
-$url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $body_json .'/';
+$url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $jwt_encoded .'/';
 
 # Set the POST Headers
 $headers = array(
