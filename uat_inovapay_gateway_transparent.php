@@ -41,7 +41,6 @@ $url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $jwt_encode
 # Set the POST Headers
 $headers = array(
     'x-api-key: ' . $api_key,
-    'Content-Type: application/json',
     'Accept-Language: pt-BR', # Language for error message, available: pt-BR en-US
 );
 
