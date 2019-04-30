@@ -44,15 +44,9 @@ $headers = array(
     'Accept-Language: pt-BR', # Language for error message, available: pt-BR en-US
 );
 
-# GET request
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-curl_close($ch);
-
-# Print the GET response in screen
-print_r($response);
+header('x-api-key: ' . $api_key);
+header('Accept-Language: pt-BR');
+header('Location: ' . $url);
+print_r('redirecting');
+exit;
+?>
