@@ -6,7 +6,7 @@ require_once('vendor/autoload.php');
 use \Firebase\JWT\JWT;
 
 # Gateway deposit API URL
-# UAT: https://uat.inovapay.com/deposit/deposit/api_key/token/
+# UAT: https://uat.inovapay.com/direct/deposit/api_key/token/
 
 # Set Auth Params
 $api_key = '8018580'; #Your api key
@@ -31,10 +31,6 @@ $params = array(
 );
 # Generate the encoded token with HS256
 $jwt_encoded = JWT::encode($params, $api_secret, 'HS256');
-# Format the POST body data. An associative array.
-$body = array('jwt' => $jwt_encoded);
-# Encode in JSON
-$body_json = json_encode($body);
 
 $url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $jwt_encoded .'/';
 
