@@ -10,8 +10,8 @@ use \Firebase\JWT\JWT;
 $url = 'https://uat.inovapay.com/api/deposit';
 
 # Set Auth Params
-$api_key = '8018580'; #Your api key
-$api_secret = 'e42573f5782eb327db7e24fb6f85977ac811c11c'; #Your api secret
+$api_key = '9396735'; #Your api key
+$api_secret = 'ee0123a639e3fecc6fb7b83a4318186b6950b172'; #Your api secret
 # Valid period for this request (optional)
 $issued_at = time() - 5;        # timestamp minus 5 seconds for an eventual server time difference
 $expire = $issued_at + 60;    # 60 seconds after $issued_at
@@ -20,13 +20,13 @@ $params = array(
     'iat' => $issued_at,
     'exp' => $expire,
     'data' => array(
-        'reference' => rand(10000, 100000), # Current transaction id, set by you !!!
+        'reference' => rand(10000, 100000), # Current transaction id, set by you 
         'user_id' => '123456', # User’s ID on Inovapay
         'user_login' => 'admin123', # User’s Login on Merchant
         'user_name' => 'Admin', # User’s name
         'user_secure_id' => '123456789', # User’s Secure ID on
         'amount' => '10', # Transaction Value. Ex. (100.50)
-        'currency' => 'brl', # “usd” or “brl”
+        'currency' => 'BRL', # “USD” or “BRL”
         #'wallet_id' => rand(10000, 100000), # Merchant wallet/product ID (If applicable)
     )
 );
