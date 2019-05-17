@@ -7,7 +7,6 @@ use \Firebase\JWT\JWT;
 
 # Gateway deposit API URL
 # UAT: https://uat.inovapay.com/deposit/deposit/api_key/token/
-
 # Set Auth Params
 $api_key = '9396735'; #Your api key
 $api_secret = 'ee0123a639e3fecc6fb7b83a4318186b6950b172'; #Your api secret
@@ -27,6 +26,7 @@ $params = array(
         'currency' => 'BRL', # Options BRL (Real) or USD (Dollar)
         'reference' => '123456789', # Deposit reference code
         'merchant_user' => 'Admin', # Identifies the user on your system
+        'country' => 'BR', # User country on ISO 3166 format
     )
 );
 # Generate the encoded token with HS256
@@ -36,7 +36,7 @@ $body = array('jwt' => $jwt_encoded);
 # Encode in JSON
 $body_json = json_encode($body);
 
-$url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $jwt_encoded .'/';
+$url = 'https://uat.inovapay.com/direct/deposit/' . $api_key . '/' . $jwt_encoded . '/';
 
 # Set the POST Headers
 $headers = array(
