@@ -26,7 +26,7 @@ $params = array(
         'user_name' => 'Admin', # User’s name
         'user_secure_id' => '123456789', # User’s Secure ID on
         'amount' => '10', # Transaction Value. Ex. (100.50)
-        'currency' => 'BRL', # “USD” or “BRL”
+        'currency' => 'brl', # “usd” or “brl”
         #'wallet_id' => rand(10000, 100000), # Merchant wallet/product ID (If applicable)
     )
 );

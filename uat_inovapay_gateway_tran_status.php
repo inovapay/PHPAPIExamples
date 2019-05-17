@@ -10,8 +10,8 @@ use \Firebase\JWT\JWT;
 $url = 'https://uat.inovapay.com/api/status';
 
 # Set Auth Params
-$api_key = '8018580'; #Your api key
-$api_secret = 'e42573f5782eb327db7e24fb6f85977ac811c11c'; #Your api secret
+$api_key = '9396735'; #Your api key
+$api_secret = 'ee0123a639e3fecc6fb7b83a4318186b6950b172'; #Your api secret
 # Valid period for this request (optional)
 $issued_at = time() - 5;        # timestamp minus 5 seconds for an eventual server time difference
 $expire = $issued_at + 60;    # 60 seconds after $issued_at
