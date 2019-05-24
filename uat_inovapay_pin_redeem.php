@@ -21,8 +21,8 @@ $params = array(
     'exp' => $expire,
     'data' => array(
         'pin' => '6163509018611495', # Given pin 16 digit number 
-        'terminalID' => '454096', # Merchant´s terminal id, set by you !!!
-        'currentTranID' => rand(10000, 100000), # Current transaction id, set by you !!!
+        'terminalID' => '454096', # Merchant´s terminal id, set by you 
+        'reference' => rand(10000, 100000), # Current transaction id, set by you 
     )
 );
 # Generate the encoded token with HS256

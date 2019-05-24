@@ -20,9 +20,9 @@ $params = array(
     'iat' => $issued_at,
     'exp' => $expire,
     'data' => array(
-        'pastTranID' => '6546546', # Past transaction id set by you !!!
-        'terminalID' => '454096', # Merchant´s terminal id, set by you !!!
-        'currentTranID' => rand(10000, 100000), # Current transaction id, set by you !!!
+        'pastReference' => '6546546', # Past transaction id set by you 
+        'terminalID' => '454096', # Merchant´s terminal id, set by you 
+        'reference' => rand(10000, 100000), # Current transaction id, set by you 
     )
 );
 # Generate the encoded token with HS256
