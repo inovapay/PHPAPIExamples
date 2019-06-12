@@ -3,52 +3,27 @@
 # Load JWT Library
 require_once('vendor/autoload.php');
 
-use \Firebase\JWT\JWT;
-
-# Pin redemption API URL
-# UAT: https://uat.inovapay.com/inovapin/voucher/redeem
+# Set Auth Params
+$api_key = 'API_KEY'; #Your api key
+$api_secret = 'API_SECRET'; #Your api secret
 $url = 'https://uat.inovapay.com/inovapin/voucher/redeem';
 
-# Set Auth Params
-$api_key = '9396735'; #Your api key
-$api_secret = 'ee0123a639e3fecc6fb7b83a4318186b6950b172'; #Your api secret
-# Valid period for this request (optional)
-$issued_at = time() - 5;        # timestamp minus 5 seconds for an eventual server time difference
+$client = new Client($url, "2301615", "e176ae5ab5bc985741db24552f5e03f5b0257931");
+
+echo "Create a pin redeem: \n";
+$issued_at = time() - 5;      # timestamp minus 5 seconds for an eventual server time difference
 $expire = $issued_at + 60;    # 60 seconds after $issued_at
 # Request Params
-$params = array(
+$params = [
     'iat' => $issued_at,
     'exp' => $expire,
-    'data' => array(
-        'pin' => '6163509018611495', # Given pin 16 digit number 
-        'terminalID' => '454096', # Merchant´s terminal id, set by you 
-        'reference' => rand(10000, 100000), # Current transaction id, set by you 
-    )
-);
-# Generate the encoded token with HS256
-$jwt_encoded = JWT::encode($params, $api_secret, 'HS256');
-# Format the POST body data. An associative array.
-$body = array('jwt' => $jwt_encoded);
-# Encode in JSON
-$body_json = json_encode($body);
+    'data' => [
+        'pin' => '9614251297434570', //'4121972612524358', # Given pin 16 digit number
+        'terminalID' => '454777', # Merchant´s terminal id, set by you
+        'reference' => rand(10000, 100000), # Current transaction id, set by you
+    ]
+];
 
-# Set the POST Headers
-$headers = array(
-    'x-api-key: ' . $api_key,
-    'Content-Type: application/json',
-    'Accept-Language: pt-BR', # Language for error message, available: pt-BR en-US
-);
-
-# POST the request
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-curl_setopt($ch, CURLOPT_POSTFIELDS, $body_json);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-curl_close($ch);
-
-# Print the POST response in screen
+$response = $client->put($params);
 print_r($response);
+echo "\n";

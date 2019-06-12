@@ -8,8 +8,8 @@ use \Firebase\JWT\JWT;
 # Gateway deposit API URL
 # UAT: https://uat.inovapay.com/deposit/deposit/api_key/token/
 # Set Auth Params
-$api_key = '9396735'; #Your api key
-$api_secret = 'ee0123a639e3fecc6fb7b83a4318186b6950b172'; #Your api secret
+$api_key = 'API_KEY'; #Your api key
+$api_secret = 'API_SECRET'; #Your api secret
 # Valid period for this request (optional)
 $issued_at = time() - 5;        # timestamp minus 5 seconds for an eventual server time difference
 $expire = $issued_at + 60;    # 60 seconds after $issued_at
